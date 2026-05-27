@@ -13,7 +13,7 @@ env:
 
 jobs:
   check:
-    name: cargo check
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -21,7 +21,7 @@ jobs:
       - run: cargo check --all-targets --all-features
       
   test:
-    name: cargo test
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -29,7 +29,7 @@ jobs:
       - run: cargo test --all-features
 
   coverage:
-    name: cargo llvm-cov
+    name: Coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -42,7 +42,7 @@ jobs:
         run: cargo llvm-cov
 
   linting:
-    name: cargo clippy
+    name: Linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -52,7 +52,7 @@ jobs:
       - run: cargo clippy -- -D warnings
 
   formatting:
-    name: cargo fmt
+    name: Formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -62,7 +62,7 @@ jobs:
       - run: cargo fmt -- --check
 
   audit:
-    name: cargo audit
+    name: Audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
